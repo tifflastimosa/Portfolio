@@ -1,0 +1,170 @@
+TODO:
+
+    -  look over the board state logic
+    -  moving pieces
+    -  determining winner of game
+        -  write on the board who the winner and loser is
+    -  implementing king pieces - drawing king pieces when reaches to repsective end of the board
+    -  highlighting where there are valid moves (optional)
+    -  delay in turns (optional - recommended)
+    -  computer makes plays - thinking about using random
+    -  testing - can be done at the end
+
+NOTES FOR NON-CAPTURE AND CAPTURE MOVE
+
+** for non-capture move
+    [[initial, next],[initial, next], [initial, next], [initial, next]]
+        e.g. [[[4,0],[2,2],[4,4]], [[4,0],[2,2],[0,4],[2,6]]]
+    move: [[initial],[next]]
+
+** for capture move
+    [[initial, remove_piece, next], [initial, remove_piece, next], ..]
+
+
+Capturing Move for a piece:
+def captureMove(state, piece, moveList):
+    Base case:
+    If no capturing move for the piece: 
+        stop
+        return moveList
+
+    Recursive step:
+    Find all capturing moves for the piece.
+    For all such moves: 
+        change state for the move.
+        add move to moveList.
+        captureMove(state, piece, moveList)
+
+Is there a capture Move?
+if (x-1, y+1) is B AND (x-2, y+2) is "*":
+    moveList.append([x-2, y+2])
+if (x+1, y+1) is B AND (x+2, y+2) is "*":
+    moveList.append(([x+2, y+2]))
+
+Capturing Move for a piece:
+def captureMove(state, piece, moveList):
+    Base case:
+    If no capturing move for the piece: 
+        stop
+        return moveList
+
+    Recursive step:
+    Find all capturing moves for the piece.
+    For all such moves: 
+        change state for the move.
+        add move to moveList.
+        captureMove(state, piece, moveList).
+
+move = moveList[i] - move is an element of moveList
+For noncapture:
+move: []
+
+
+NOTES ON THE GAMEBOARD 
+
+[Piece(R, 7, 0), " ", Piece(R, 7, 2), " ", Piece(R, 7, 4), " ", Piece(R, 7, 6), " "],
+[" ", Piece(R, 6, 1), " ", Piece(R, 6, 3), " ", Piece(R, 6, 5), " ", Piece(R, 6, 7)],
+[Piece(R, 5, 0), " ", Piece(R, 5, 2), " ", Piece(R, 5, 4), " ", Piece(R, 5, 6), " "],
+[" ", Piece(A, 4, 1), " ", Piece(A, 4, 3), " ", Piece(A, 4, 5), " ", Piece(A, 4, 7)],
+[Piece(A, 3, 0), " ", Piece(A, 3, 2), " ", Piece(A, 3, 4), " ", Piece(A, 3, 6), " "],
+[" ", Piece(B, 2, 1), " ", Piece(B, 2, 3), " ", Piece(B, 2, 5), " ", Piece(B, 2, 7)],
+[Piece(B, 1, 0), " ", Piece(B, 1, 2), " ", Piece(B, 1, 4), " ", Piece(B, 1, 6), " "],
+[" ", Piece(B, 0, 1), " ", Piece(B, 0, 3), " ", Piece(B, 0, 5), " ", Piece(B, 0, 7)]
+
+NOTES KING PIECES 
+
+- Black piece become king if x = 7, y is even (including 0)
+- Red piece become king if x = 0, y is odd
+
+CONDITION COMPLETED
+if piece.color == B and self.x == 7 and self.y % 2 == 0:
+    #  how might I call the the method that draws the king piece
+elif piece.color == R and self.x == 0 and self.y % 2 != 0:
+    #  how might I  call the method that draws the king piece
+
+
+
+
+For a given x, y coordinate:
+Highlight on board.
+    If x, y is a piece of the current turn:
+        Select and highlight this piece and highlight all valid moves for this piece.
+        If piece is in ??'s dictionary (which mean that it can play a capture move), highlight.
+    If x,y is an available spot:
+        Is there a selected piece? Yes. Make move if valid.
+
+
+If any piece on the board can play a capture move, then only those pieces can be played.
+
+Function ??:
+    For all pieces self.turn on the board
+        Find capture moves that can be played.
+    Return capture moves for all pieces that can play one. 
+        (dictionary with key piece and value: list of capture moves)
+
+
+If ?? returns an empty dictionary, then only noncapture moves can be played.
+
+
+CLICK-HANDLER HINTS - FROM PROFESSOR
+
+def click_handler(x, y):
+		if BLACK_PLAYER:
+				# do this
+		else:										# this is the red player
+				# do that
+
+
+import turtle
+
+BLACK_PLAYER = True
+
+
+def toggle_player():
+    global BLACK_PLAYER
+    BLACK_PLAYER = not BLACK_PLAYER
+
+
+# Version 1 — Each time the function is invoked (i.e., after every click), the
+# black player gets a turn OR the red player gets a turn. In this version, you
+# need a click to trigger the black player's turn, a new click to trigger the
+# red player's turn, and so on and so forth. If you use this version and run
+# the program, you'll see that you need to click before you see new print
+# statements indicating whose turn it is.
+# def click(x, y):
+#     if BLACK_PLAYER:
+#         print("Black player's turn.")
+#         toggle_player()
+#     else:
+#         print("Red player's turn.")
+#         toggle_player()
+
+# Verion 2 — Each time the function is invoked (i.e., after every click), the
+# black player gets a turn AND the red player gets a turn. Note that lack of
+# the "else" branch. If you use this version and run the program, you'll see
+# that after a single click, both the black and red players take a turn.
+def click(x, y):
+    if BLACK_PLAYER:
+        print("Black player's turn.")
+        toggle_player()
+    print("Red player's turn.")
+    toggle_player()
+
+
+def main():
+    t = turtle.Screen()
+    t.onclick(click)
+    turtle.done()
+
+
+if __name__ == "__main__":
+    main()
+
+
+def highlighted_piece(self, size, x, y):
+    turtle.penup()
+    turtle.setposition()
+    turtle.pendown()
+    turtle.color("blue")
+    self.draw_square(SQUARE)
+    turtle.penup()

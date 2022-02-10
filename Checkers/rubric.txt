@@ -1,0 +1,30 @@
+RUBRIC
+
+1.  Project Submitted - 3 pts
+    You made it!
+
+2.  Documentation - 10 pts
+    File comments, docstrings for classes, methods, and functions
+
+3.  Main - 4 pts
+    There is a main.py with a main function
+
+4.  No magic numbers - 2 pts
+
+5.  Name conventions met - 2 pts
+
+6.  Use of classes - 6 pts
+
+7.  Style - 3 pts
+    No pycodestyle violations
+    Will need to run pycode - it's like running pytest
+
+8.  Code design - 7 pts
+    No repeated/redundant code.  Functions / methods are succint and have a
+    single purpose.
+    Testable logic is separated from Turtle.
+
+9.  Testing - 3 pts
+    Every testable function/method is tested. Branches in these
+    functions/methods are tested.
+    Tests pass.
