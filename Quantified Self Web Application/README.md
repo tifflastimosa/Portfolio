@@ -24,7 +24,7 @@ A web application that reads a json file , parses the json file, and inserts the
 * After the final presentation, we promised to have a front end that represented the data and to implement a full RESTful api service that would allow the user or client to not only make GET requests, but also use POST, PUT, and DELETE requests.
 
 * Please see the following link below for a screenshot of the features implemented. </br>
-[Features Screenshots](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/Features-Screenshots.pdf)
+[Features Screenshots](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/Features-Screenshots.pdf)
 
 ## Assumptions
 
@@ -69,23 +69,23 @@ npm install will install and load the dependencies to run the front end.  From t
 * Please see javadocs in our project for additional documentation </br>
 
 * REST api Documentation </br>
-[REST Documentation](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/REST-Documentation.pdf)
+[REST Documentation](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/REST-Documentation.pdf)
 
 
 ## Testing
 * Testing is satisfactory.  Overall, our ending result showed a vast improvement in our CodeMR report from Sprint 2 to the ending product.  We saw improvement of our CodeMR after refactoring and utilizing features from creational patterns such as Builder Pattern and Factory Pattern.  There is much to improve on, however, we are satisfied with our CodeMR report. For a more detailed report regarding CodeMR, please see the following link. </br>
 
-  * [CodeMR](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/CodeMR-Report.pdf)
+  * [CodeMR](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/CodeMR-Report.pdf)
 
 * Testing could be improved in Postman. Postman was a new tool we utilized, and to do the testing we had to learn a little bit of javascript to do so.  For a more detailed report regarding Postman testing, please see the following link. </br>
-  * [Postman REST Testing](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/Postman-Testing.pdf)</br>
-  * [Post REST Testing - json](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/Quantified%20Self%20API%20test.postman_test_run.json)</br>
+  * [Postman REST Testing](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/Postman-Testing.pdf)</br>
+  * [Post REST Testing - json](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/Quantified%20Self%20API%20test.postman_test_run.json)</br>
 
 
 * It is important to note, testing was satisfactory, but revealed the improvements we need to do to make this web application fully featured.  For unit testing, please see the test folder in the quantifiedself project.  Some of our tests failed, but it is important to make note of these tests so that we can use that to revisit our code and do any necessary debugging. </br>
 
 ## System design
-![quantifiedself uml diagram](https://github.ccs.neu.edu/wheadenj/CS5500_Project/blob/master/quantified-self-uml.png)</br>
+![quantifiedself uml diagram](https://github.com/tifflastimosa/Portfolio/blob/main/Quantified%20Self%20Web%20Application/quantified-self-uml.png)</br>
 
    For this project, we implemented the Model View Controller (MVC) design pattern to develop our web application because of the commonality of use for user interface. The model contained entries which contained segments and summaries. The segment contained move segments and place segments, where a move segment is a list of activities. The summaries is a summary of the activities performed for that entry.  In doing this, we created an activities, entries, and place collection.  </br>
 
